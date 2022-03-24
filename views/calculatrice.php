@@ -26,7 +26,7 @@ if(!empty($_POST)){
         $error = 'Veuillez saisir une opération valide';
     }
 }
-
+ 
 ?>
 
 
@@ -36,9 +36,12 @@ if(!empty($_POST)){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/style.css">
     <title>Document</title>
 </head>
-<body>
+<body id="calcBody">
+    <h1>Bienvenue sur la calculatrice</h1>
+    <a href="/">Retour au jeu des Animaux</a>
     <form action="" method="POST">
         <?php
             if(isset($error)){

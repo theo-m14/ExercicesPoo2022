@@ -18,7 +18,7 @@
         <a href="/eatOiseau">Faire manger l'oiseau</a>
         <a href="/locomotionPoisson">Faire avancer le poisson</a>
         <a href="/locomotionOiseau">Faire avancer l'oiseau</a>
+        <a href="/calculatrice">Aller vers la calculatrice</a>
     </div>
-    <a href="/calculatrice">Aller vers la calculatrice</a>
 </body>
 </html>
