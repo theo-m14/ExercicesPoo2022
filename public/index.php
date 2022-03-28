@@ -2,6 +2,9 @@
 
 declare(strict_types=1);
 
+use App\Controllers\AnimalController;
+use App\Controllers\CalculatriceController;
+use App\Controllers\HomeController;
 use App\Router;
 use App\Zoo\Oiseau;
 use App\Zoo\Poisson;
@@ -21,45 +24,44 @@ $router = new Router();
 
 
 $router->register('/fuirPoisson', function(){
-    $poisson = new Poisson('poisson-rouge','Nemo');
-    echo '<p>' . $poisson->flee() . '</p>'; 
-    echo '<a href="/">Retour</a>';
-})->register('/', function(){
-    require_once '../views/homepage.php';
-})->register('/fuirOiseau', function(){
-    $oiseau = new Oiseau('Perroquet', 'Rio');
-    echo '<p>' . $oiseau->flee() . '</p>'; 
-    echo '<a href="/">Retour</a>';
-})->register('/eatPoisson', function(){
-    $poisson = new Poisson('poisson-rouge','Nemo');
-    echo '<p>' . $poisson->eat() . '</p>'; 
-    echo '<a href="/">Retour</a>';
-})->register('/eatOiseau', function(){
-    $oiseau = new Oiseau('Perroquet', 'Rio');
-    echo '<p>' . $oiseau->eat() . '</p>'; 
-    echo '<a href="/">Retour</a>';
-})->register('/identityPoisson', function(){
-    $poisson = new Poisson('poisson-rouge','Nemo');
-    echo '<p>' . $poisson->identify() . '</p>'; 
-    echo '<a href="/">Retour</a>';
-})->register('/identityOiseau', function(){
-    $oiseau = new Oiseau('Perroquet', 'Rio');
-    echo '<p>' . $oiseau->identify() . '</p>'; 
-    echo '<a href="/">Retour</a>';
-})->register('/identityPoisson', function(){
-    $poisson = new Poisson('poisson-rouge','Nemo');
-    echo '<p>' . $poisson->identify() . '</p>'; 
-    echo '<a href="/">Retour</a>';
-})->register('/locomotionPoisson',function(){
-    $poisson = new Poisson('poisson-rouge','Nemo');
-    echo '<p>' . $poisson->nager() . '</p>'; 
-    echo '<a href="/">Retour</a>';
-})->register('/locomotionOiseau',function(){
-    $oiseau = new Oiseau('Perroquet', 'Rio');
-    echo '<p>' . $oiseau->voler() . '</p>'; 
-    echo '<a href="/">Retour</a>';
-})->register('/calculatrice', function(){
-    require_once '../views/calculatrice.php';
-});
+
+        echo (new AnimalController)->animalFlee(new Poisson('poisson-rouge','Nemo'));
+
+    })->register('/', function(){
+
+        echo (new HomeController())->index();
+
+    })->register('/fuirOiseau', function(){
+
+        echo (new AnimalController)->animalFlee(new Oiseau('Perroquet', 'Rio'));
+
+    })->register('/eatPoisson', function(){
+
+        echo (new AnimalController)->animalEat(new Poisson('poisson-rouge','Nemo'));
+
+    })->register('/eatOiseau', function(){
+
+        echo (new AnimalController)->animalEat(new Oiseau('Perroquet', 'Rio'));
+
+    })->register('/identityPoisson', function(){
+
+        echo (new AnimalController)->animalIdentify(new Poisson('poisson-rouge','Nemo'));
+
+    })->register('/identityOiseau', function(){
+
+        echo (new AnimalController)->animalIdentify(new Oiseau('Perroquet', 'Rio'));
+
+    })->register('/locomotionPoisson',function(){
+
+        echo (new AnimalController)->poissonNage(new Poisson('poisson-rouge','Nemo'));
+
+    })->register('/locomotionOiseau',function(){
+
+        echo (new AnimalController)->oiseauVole(new Oiseau('Perroquet', 'Rio'));
+
+    })->register('/calculatrice', function(){
+
+        echo (new CalculatriceController)->renderCalculatrice();
+    });
 
 $router->resolve($_SERVER['REQUEST_URI']);

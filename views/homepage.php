@@ -8,7 +8,7 @@
     <title>Jeu des Animaux</title>
 </head>
 <body id="homePageBody">
-    <h1>Bienvenus au jeu des animaux</h1>
+    <h1>Bienvenue au jeu des animaux</h1>
     <div>
         <a href="/fuirPoisson">Faire fuir le poisson</a>
         <a href="/fuirOiseau">Faire fuir l'oiseau</a>
